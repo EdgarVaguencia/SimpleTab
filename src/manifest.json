@@ -1,0 +1,16 @@
+{
+ "author": "Edgar Valencia <isc.edgarvalencia@gmail.com>",
+ "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+ "description": "New Tab que permite la correcta conbinación entre relajación y productividad.",
+ "icons": {
+   "128": "icons/icon-128.png",
+   "48": "icons/icon-48.png",
+   "32": "icons/icon-32.png",
+   "16": "icons/icon-16.png"
+ },
+ "manifest_version": 2,
+ "name": "ZenTab",
+ "version": "0.1.0"
+}
