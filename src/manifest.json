@@ -1,16 +1,32 @@
 {
- "author": "Edgar Valencia <isc.edgarvalencia@gmail.com>",
- "chrome_url_overrides" : {
+  "author": "Edgar Valencia <isc.edgarvalencia@gmail.com>",
+  "chrome_url_overrides" : {
     "newtab": "index.html"
   },
- "description": "New Tab que permite la correcta conbinación entre relajación y productividad.",
- "icons": {
-   "128": "icons/icon-128.png",
-   "48": "icons/icon-48.png",
-   "32": "icons/icon-32.png",
-   "16": "icons/icon-16.png"
- },
- "manifest_version": 2,
- "name": "ZenTab",
- "version": "0.1.0"
+  "background": {
+    "page": "background.html",
+    "persistent": true
+  },
+  "content_security_policy": "script-src 'self' https://calendar.google.com https://ssl.google-analytics.com; object-src 'self'",
+  "description": "New Tab que permite la correcta conbinación entre relajación y productividad.",
+  "icons": {
+    "128": "icons/icon-128.png",
+    "48": "icons/icon-48.png",
+    "32": "icons/icon-32.png",
+    "16": "icons/icon-16.png"
+  },
+  "manifest_version": 2,
+  "name": "ZenTab",
+  "oauth2": {
+      "client_id": "476998938296-b481o676hfdgfi2i2ullh2pdvec1doiu.apps.googleusercontent.com",
+      "scopes": [
+        "https://www.googleapis.com/auth/calendar"
+      ]
+  },
+  "permissions": [
+    "identity",
+    "http://calendar.google.com/calendar/*",
+    "https://calendar.google.com/calendar/*"
+  ],
+  "version": "0.1.0"
 }

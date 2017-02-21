@@ -1,4 +1,4 @@
-(function() {
+ZenTabApp = (function() {
   var divImage = document.getElementById('img');
   var spanClock = document.getElementById('clock');
   var imgElement = document.createElement('img');
@@ -19,4 +19,16 @@
 
   gTime();
 
+  function _updateCalendar() {
+    chrome.runtime.sendMessage({action: 'log', data: '_updateCalendar'}, function(status) {
+      console.log(status);
+    });
+  }
+
+  return {
+    updateCalendar: _updateCalendar
+  }
+
 })();
+
+chrome.runtime && chrome.runtime.sendMessage && chrome.runtime.sendMessage({action: 'page'});

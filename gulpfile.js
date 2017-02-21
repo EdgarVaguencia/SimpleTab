@@ -5,7 +5,7 @@ const del = require('del');
 
 const cssSrc = ['src/stylus/*.styl'];
 const jsSrc = ['src/js/*.js'];
-const genericsrc = ['src/index.html', 'src/manifest.json'];
+const genericsrc = ['src/*.html', 'src/manifest.json'];
 
 gulp.task('clean', function(cb) {
   return del(['tmp/**/*']);
