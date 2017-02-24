@@ -6,7 +6,7 @@ ZenTabUtil = (function() {
         chrome.extension.getBackgroundPage().ZenTabCal.getFeed();
         break;
       case 'updated.feed':
-        ZenTabApp.updateCalendar();
+        window.ZenTabApp && ZenTabApp.updateCalendar(msg.data);
         break;
       case 'log':
         chrome.extension.getBackgroundPage().ZenTabBack.log(msg.data);

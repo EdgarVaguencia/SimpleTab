@@ -11,7 +11,7 @@ ZenTabBack = (function() {
   manifest = chrome.runtime.getManifest();
 
   chrome.runtime.onInstalled.addListener(function(detail) {
-    detail.reason == 'install' ? (_track({info: manifest.version, type: 'install'}), _showLoginInteractiveAutenticated()) : detail.reason == 'update' && (_track({info:manifest.version, type: 'update'}), _removeToken());
+    detail.reason == 'install' ? (_track({info: manifest.version, type: 'install'}), _showLoginInteractiveAutenticated()) : detail.reason == 'update' && (_track({info:manifest.version, type: 'update'}), _showLoginAutenticated());
   });
 
   function _track(obj) {
@@ -30,11 +30,9 @@ ZenTabBack = (function() {
     chrome.identity && chrome.identity.getAuthToken({interactive: true}, function(token) {
       if (chrome.runtime.lastError || !token) {
         _log('authInteractiveToken'), _track({info: 'authToken', type: 'error'});
-      }else{
-        _log(token);
-        ZenTabCal.getFeed();
       }
     });
+    _userProfile();
   }
 
   function _showLoginAutenticated() {
@@ -42,10 +40,23 @@ ZenTabBack = (function() {
       if (chrome.runtime.lastError || !token) {
         chrome.identity.removeCachedAuthToken({ 'token': token }, function (tokens) { _log(tokens);});
         _log('authToken'), _track({info: 'authToken', type: 'error'});
-      }else{
-        _log(token);
-        ZenTabCal.getFeed();
       }
+    });
+    _userProfile();
+  }
+
+  function _userProfile() {
+    chrome.identity && chrome.identity.getProfileUserInfo(function(obj) {
+      if (chrome.runtime.lastError) {
+        _track({info: chrome.runtime.lastError.message, type: 'error'});
+        return;
+      }
+      chrome.storage.local.set({'zenEmail': obj.email}, function() {
+        if (chrome.runtime.lastError) {
+          _log(chrome.runtime.lastError.message);
+          return;
+        }
+      })
     });
   }
 
@@ -78,7 +89,8 @@ ZenTabBack = (function() {
   return {
     tracking: _track,
     trackPage: _trackPage,
-    log: _log
+    log: _log,
+    getUser: _userProfile
   }
 
 })();
