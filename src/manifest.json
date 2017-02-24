@@ -17,7 +17,7 @@
   },
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnMnu92y9HzlkAHr3plUl83joYJKicOECc2eUvdx6GL4pZZ8t5e2uEOtEI8czzqwn67H6NMfHEoJ0fNceLTG6x/CQYvwSQ6wKr3KKGwUZdC0C5BFDkDddObqRpdY30BalPPrdfEWCsKwdLOPwYQsftPq7NDrEDprCyaCO9cOs1P7YKIx5mCbxhRopQWAVQZIyfxZums68Gso7FIDc+1n33ZipNlmDaMTb8cBa82oKDaK/4MBB33bh/x0bvrYGS+tlFwtXOL/swLgUOXe+N0bjNMbHKgbAM1GN7lBdvgaAClPW9rsZ/hZ2ybMx82Jfo8axwRc7CouDPGXK5qrAfIzH+QIDAQAB",
   "manifest_version": 2,
-  "name": "EventsTab",
+  "name": "SimpleTab",
   "oauth2": {
       "client_id": "260725395008-8604n2ler8rcfk56llp0kh423d5ohdek.apps.googleusercontent.com",
       "scopes": [
@@ -31,5 +31,5 @@
     "http://calendar.google.com/calendar/*",
     "https://calendar.google.com/calendar/*"
   ],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

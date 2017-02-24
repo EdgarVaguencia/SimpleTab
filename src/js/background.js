@@ -15,14 +15,14 @@ ZenTabBack = (function() {
   });
 
   function _track(obj) {
-    // _gaq.push(['_setAccount', 'UA-61174805-2']);
-    // _gaq.push(['_trackEvent', obj.info, obj.type]);
+    _gaq.push(['_setAccount', 'UA-61174805-2']);
+    _gaq.push(['_trackEvent', obj.info, obj.type]);
     _log('_track ' + obj.type);
   }
 
   function _trackPage() {
-    // _gaq.push(['_setAccount', 'UA-61174805-2']);
-    // _gaq.push(['_trackPageView']);
+    _gaq.push(['_setAccount', 'UA-61174805-2']);
+    _gaq.push(['_trackPageView']);
     _log('_trackPage');
   }
 
@@ -57,27 +57,6 @@ ZenTabBack = (function() {
           return;
         }
       })
-    });
-  }
-
-  function _removeToken() {
-    chrome.identity.getAuthToken({}, function(token) {
-      if (chrome.runtime.lastError) {
-        _log(chrome.runtime.lastError.message);
-      }
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', ZenTabCal.urls['api']);
-      xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-
-      xhr.onload = function () {
-        if (this.status === 401) {
-          // This status may indicate that the cached
-          // access token was invalid. Retry once with
-          // a fresh token.
-          chrome.identity.removeCachedAuthToken({ 'token': token }, function(){});
-          return;
-        }
-      }
     });
   }
 
