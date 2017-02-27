@@ -15,7 +15,7 @@ gulp.task('clean', function(cb) {
 gulp.task('build', ['clean', 'files']);
 
 gulp.task('dist', ['build'], function() {
-  return gulp.src('tmp/*')
+  return gulp.src('tmp/**/*')
     .pipe(_$.zip('chrome.zip'))
     .pipe(gulp.dest('dist/'));
 });

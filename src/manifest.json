@@ -9,6 +9,7 @@
   },
   "content_security_policy": "script-src 'self' https://calendar.google.com https://ssl.google-analytics.com; object-src 'self'",
   "description": "New Tab que permite la correcta conbinación entre relajación y productividad.",
+  "homepage_url": "https://github.com/edgarvaguencia/simpletab",
   "icons": {
     "128": "icons/icon-128.png",
     "48": "icons/icon-48.png",
@@ -31,5 +32,6 @@
     "http://calendar.google.com/calendar/*",
     "https://calendar.google.com/calendar/*"
   ],
-  "version": "0.2.0"
+  "short_name": "New Tab Page",
+  "version": "0.2.1"
 }
