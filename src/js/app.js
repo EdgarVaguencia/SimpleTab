@@ -4,6 +4,10 @@ ZenTabApp = (function() {
   var spanClock = document.getElementById('clock');
   var imgElement = document.createElement('img');
   var divAllEvents = document.getElementById('events');
+  var tagTitle = document.getElementsByTagName('title')[0];
+
+  var extName = chrome.i18n.getMessage('extName')
+  tagTitle.innerText = 'New Tab | ' + extName;
 
   var widthHours = divAllEvents.clientWidth / 24;
 

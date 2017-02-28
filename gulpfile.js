@@ -5,7 +5,7 @@ const del = require('del');
 
 const cssSrc = ['src/stylus/*.styl'];
 const jsSrc = ['src/js/*.js'];
-const genericsrc = ['src/*.html', 'src/manifest.json'];
+const genericsrc = ['src/*.html', 'src/manifest.json', 'src/_locales/**/*'];
 
 gulp.task('clean', function(cb) {
   return del(['tmp/**/*']);
@@ -20,7 +20,7 @@ gulp.task('dist', ['build'], function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('files', ['stylus', 'js', 'icon'], function(cb) {
+gulp.task('files', ['stylus', 'js', 'icon', 'language'], function(cb) {
   return gulp.src(genericsrc)
     .pipe(gulp.dest('tmp/'));
   cb(err);
@@ -47,6 +47,12 @@ gulp.task('js', function(cb) {
 gulp.task('icon', function(cb) {
   return gulp.src('icons/*.png')
     .pipe(gulp.dest('tmp/icons/'));
+    cb(err);
+});
+
+gulp.task('language', function(cb) {
+  return gulp.src('src/_locales/**/*')
+    .pipe(gulp.dest('tmp/_locales'));
     cb(err);
 });
 
