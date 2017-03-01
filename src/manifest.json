@@ -34,5 +34,5 @@
     "https://calendar.google.com/calendar/*"
   ],
   "short_name": "New Tab Page",
-  "version": "0.2.2"
+  "version": "0.2.3"
 }

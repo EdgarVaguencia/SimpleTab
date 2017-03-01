@@ -1,6 +1,4 @@
 var _gaq = _gaq || [];
-// _gaq.push(['_setAccount', 'UA-61174805-2']);
-// _gaq.push(['_trackPageView']);
 (function() {
   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
   ga.src = 'https://ssl.google-analytics.com/ga.js';
@@ -15,13 +13,13 @@ ZenTabBack = (function() {
   });
 
   function _track(obj) {
-    _gaq.push(['_setAccount', 'UA-61174805-2']);
+    _gaq.push(['_setAccount', 'UA-76663200-4']);
     _gaq.push(['_trackEvent', obj.info, obj.type]);
     _log('_track ' + obj.type);
   }
 
   function _trackPage() {
-    _gaq.push(['_setAccount', 'UA-61174805-2']);
+    _gaq.push(['_setAccount', 'UA-76663200-4']);
     _gaq.push(['_trackPageView']);
     _log('_trackPage');
   }
